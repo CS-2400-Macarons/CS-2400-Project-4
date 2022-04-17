@@ -3,7 +3,8 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class TestHeap {
+public class TestHeap 
+{
 
         public static void main(String[] args) 
         {              
@@ -27,7 +28,7 @@ public class TestHeap {
                         e.printStackTrace();
                 }
 
-        //write the data to the output file        
+                //write the data to the output file        
                 try {
                         //open a file to write data
                         PrintWriter f =new PrintWriter("output.txt");
@@ -40,13 +41,28 @@ public class TestHeap {
                         //Print out the heap
                         for(int i = 1; i <= 10; i++)
                         {
-                                f.write(newheap.getData(i) + " ,");
+                                f.write(newheap.getData(i) + ", ");
                         }
                         
                         f.write("...\n");
 
                         //Print out the number of swaps
                         f.write("Number of swaps in the heap creation: " + newheap.getSwap() + "\n" );
+
+                        //Removeals on heap
+                        for(int i = 1; i<= 10; i++)
+                        {
+                                newheap.removeMax();
+                                
+                        }
+
+                        //Print out the heap after 10 removal
+                        f.write("Heap after 10 removals: ");
+                        for(int i = 1; i <= 10; i++)
+                        {
+                                f.write(newheap.getData(i) + ", ");
+                        }
+                        f.write("...\n");                        
 
                         f.close();
 
@@ -57,5 +73,5 @@ public class TestHeap {
                         System.out.println("Cannot write data to the file");
                 }
        
-}
+        }
 }
