@@ -6,6 +6,7 @@ public final class MaxHeap <T extends Comparable<? super T>> implements MaxHeapI
     private boolean initialized = false;
     private static final int DEFAULT_CAPACITY = 25;
     private static final int MAX_CAPACITY = 10000;
+    private int swap = 0;
 
     public MaxHeap()
     {
@@ -115,6 +116,7 @@ public final class MaxHeap <T extends Comparable<? super T>> implements MaxHeapI
             if ((rightChildIndex <= lastIndex) && heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
             {
                 largerChildIndex = rightChildIndex;
+
             }//end if
 
         if(orphan.compareTo(heap[largerChildIndex]) < 0)
@@ -122,6 +124,7 @@ public final class MaxHeap <T extends Comparable<? super T>> implements MaxHeapI
             heap[rootIndex] = heap[largerChildIndex];
             rootIndex = largerChildIndex;
             leftChildIndex = 2*rootIndex;
+            swap ++;
         }
 
         else
@@ -146,6 +149,40 @@ public final class MaxHeap <T extends Comparable<? super T>> implements MaxHeapI
         return root;
         
     } // end removeMax
+
+    public MaxHeap(T[] entries)
+    {
+        this(entries.length); //Call other constructor
+        assert initialized = true;
+        
+    }
+
+    public void optimalMethod(T[] entries)
+    {
+            //Copy given array to data field
+      for(int index = 0; index < entries.length; index++)
+        heap[index+1] = entries[index];
+    
+      lastIndex = entries.length;
+      //Create heap
+      for(int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
+       {
+            reheap(rootIndex);
+           
+       }    
+       
+            
+    }
+
+    public int getSwap() 
+    {
+        return swap;
+    }
+
+    public T getData(int index)
+    {
+       return heap[index];
+    }
 
 
 
