@@ -157,6 +157,17 @@ public final class MaxHeap <T extends Comparable<? super T>> implements MaxHeapI
         
     }
 
+    public void sequentialInsertion(T[] entries)
+    {
+        if(!isEmpty())
+        {
+            for(int index = 0; index < entries.length; index++)
+            {
+                add(entries[index]);
+            }
+        }
+    }
+
     public void optimalMethod(T[] entries)
     {
             //Copy given array to data field
