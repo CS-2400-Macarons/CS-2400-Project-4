@@ -87,6 +87,7 @@ public final class MaxHeap <T extends Comparable<? super T>> implements MaxHeapI
             heap[newIndex] = heap[parentIndex];
             newIndex = parentIndex;
             parentIndex = newIndex/2;
+            swap++;
         } // end while
 
         heap[newIndex] = newEntry;
@@ -159,12 +160,9 @@ public final class MaxHeap <T extends Comparable<? super T>> implements MaxHeapI
 
     public void sequentialInsertion(T[] entries)
     {
-        if(!isEmpty())
+        for(int index = 0; index < entries.length; index++)
         {
-            for(int index = 0; index < entries.length; index++)
-            {
-                add(entries[index]);
-            }
+            add(entries[index]);
         }
     }
 
