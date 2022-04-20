@@ -130,38 +130,38 @@ public class TestHeap
         try {
             //open a file to write data
             PrintWriter f2 =new PrintWriter("output_random.txt");
-            MaxHeap <Integer> newheap2 = new MaxHeap<>(randomOptimal);
+            MaxHeap <Integer> insertHeap2 = new MaxHeap<>(randomInsert);
+            MaxHeap <Integer> optimaHeap2 = new MaxHeap<>(randomOptimal);
 
             //Sequential Insertion Method
 
 
             //Optimal method
-            newheap2.optimalMethod(randomOptimal);
+            optimaHeap2.optimalMethod(randomOptimal);
             f2.write("Heap built using optimal method: ");
 
             //Print out the heap
             for(int i = 1; i <= 10; i++)
             {
-                f2.write(newheap2.getData(i) + ", ");
+                f2.write(optimaHeap2.getData(i) + ", ");
             }
 
             f2.write("...\n");
 
             //Print out the number of swaps
-            f2.write("Number of swaps in the heap creation: " + newheap2.getSwap() + "\n" );
+            f2.write("Number of swaps in the heap creation: " + optimaHeap2.getSwap() + "\n" );
 
             //Removeals on heap
             for(int i = 1; i<= 10; i++)
             {
-                newheap2.removeMax();
-
+                optimaHeap2.removeMax();
             }
 
             //Print out the heap after 10 removal
             f2.write("Heap after 10 removals: ");
             for(int i = 1; i <= 10; i++)
             {
-                f2.write(newheap2.getData(i) + ", ");
+                f2.write(optimaHeap2.getData(i) + ", ");
             }
             f2.write("...\n");
 
