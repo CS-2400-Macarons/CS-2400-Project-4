@@ -135,7 +135,32 @@ public class TestHeap
             MaxHeap <Integer> optimaHeap2 = new MaxHeap<>(randomOptimal);
 
             //Sequential Insertion Method
-            
+            insertHeap2.sequentialInsertion(randomInsert);
+            f2.write("Heap built using sequential insertions: ");
+
+            //Print out heap
+            for(int i = 1, i <=10;i++)
+            {
+                f2.write(insertHeap2.getData(i) + ", ");
+            }
+            f2.write("...\n");
+
+            //Print out the number of swaps
+            f2.write("Number of swaps in the heap creation: " + insertHeap2.getSwap() + "\n");
+
+            //Removals on heap
+            for(int i = 1; i <= 10; i++)
+            {
+                insertHeap2.removeMax();
+            }
+
+            //Print out the heap after 10 removal
+            f2.write("Heap after 10 removals: ");
+            for (int i = 1; i <= 10; i++)
+            {
+                f2.write(insertHeap2.getData(i) + ", ");
+            }
+            f2.write("...\n\n");
 
             //Optimal method
             optimaHeap2.optimalMethod(randomOptimal);
