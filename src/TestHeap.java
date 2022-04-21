@@ -139,7 +139,7 @@ public class TestHeap
             f2.write("Heap built using sequential insertions: ");
 
             //Print out heap
-            for(int i = 1, i <=10;i++)
+            for(int i = 1; i <= 10; i++)
             {
                 f2.write(insertHeap2.getData(i) + ", ");
             }
